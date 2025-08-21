@@ -1,0 +1,67 @@
+{
+  "doctype": "DocType",
+  "name": "Leave Request",
+  "module": "HR Leave",
+  "custom": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 0,
+  "quick_entry": 0,
+  "autoname": "LR-.YYYY.-.#####",
+  "permissions": [
+    {"role": "Employee", "read": 1, "write": 1, "create": 1, "delete": 0},
+    {"role": "HR User", "read": 1, "write": 1, "create": 1, "delete": 0},
+    {"role": "HR Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ],
+  "fields": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "reqd": 1
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "leave_type",
+      "label": "Leave Type",
+      "fieldtype": "Select",
+      "options": "CL\nSL\nEL",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Pending\nApproved\nRejected",
+      "default": "Pending",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Link",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_days",
+      "label": "Total Days",
+      "fieldtype": "Int",
+      "read_only": 1,
+      "description": "Calculated excluding weekends"
+    }
+  ]
+}
